@@ -1,6 +1,11 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { createGetInitialProps } from "@mantine/next";
 
-class MyDocument extends Document {
+const getInitialProps = createGetInitialProps();
+
+export default class _Document extends Document {
+  static getInitialProps = getInitialProps;
+
   render() {
     return (
       <Html>
@@ -20,7 +25,7 @@ class MyDocument extends Document {
 
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=optional"
+            href="https://fonts.googleapis.com/css?family=Roboto&display=optional"
           />
         </Head>
         <body>
@@ -31,5 +36,3 @@ class MyDocument extends Document {
     );
   }
 }
-
-export default MyDocument;
