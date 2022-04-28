@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { Alert, Button } from "@mantine/core";
+import React, { useEffect, useState, useRef } from "react";
+import { Download } from "tabler-icons-react";
 
-const InstallButton = () => {
+const InstallButton = ({ onClose }) => {
   const [supportsPWA, setSupportsPWA] = useState(false);
   const [promptInstall, setPromptInstall] = useState(null);
 
@@ -18,24 +20,35 @@ const InstallButton = () => {
 
   const onClick = (evt) => {
     evt.preventDefault();
-    if (!promptInstall) {
-      return;
-    }
+
+    if (!promptInstall) return;
+
     promptInstall.prompt();
   };
+
   if (!supportsPWA) {
     return null;
   }
+
   return (
-    <button
-      className="link-button"
-      id="setup_button"
-      aria-label="Install app"
-      title="Install app"
-      onClick={onClick}
+    <Alert
+      icon={<Download size={30} />}
+      title="Install the app and get a better experience"
+      color="indigo"
+      radius="md"
+      variant="filled"
+      styles={{
+        icon: { width: "30px", marginTop: "6px" },
+        closeButton: { width: "20px", alignSelf: "flex-start" },
+      }}
+      withCloseButton
+      closeButtonLabel="Close install alert"
+      onClose={onClose}
     >
-      Install
-    </button>
+      <Button variant="white" onClick={onClick} size="sm">
+        Click here to install{" "}
+      </Button>
+    </Alert>
   );
 };
 
