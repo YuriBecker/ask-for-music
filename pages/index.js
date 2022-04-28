@@ -1,3 +1,4 @@
+import InstallButton from "components/InstallButton";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,6 +19,8 @@ export default function Home() {
         </h1>
 
         <Link href={"/home"}>Home</Link>
+
+        <InstallButton />
 
         <p className={styles.description}>
           Get started by editing{" "}
