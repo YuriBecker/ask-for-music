@@ -9,7 +9,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-          <meta name="theme-color" content="#00ffa2" />
+          <meta name="theme-color" content="#000000" />
           <meta name="application-name" content="Ask For Music" />
           <meta name="description" content="PWA app to ask form music" />
           <meta name="format-detection" content="telephone=no" />
