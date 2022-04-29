@@ -33,8 +33,8 @@ const InstallButton = ({ onClose }) => {
   return (
     <Alert
       icon={<Download size={30} />}
-      title="Install the app and get a better experience"
-      color="indigo"
+      title="Instale o App e obtenha uma melhor experiência"
+      color="primaryColor"
       radius="md"
       variant="filled"
       styles={{
@@ -42,11 +42,11 @@ const InstallButton = ({ onClose }) => {
         closeButton: { width: "20px", alignSelf: "flex-start" },
       }}
       withCloseButton
-      closeButtonLabel="Close install alert"
+      closeButtonLabel="Fecha o alerta de instalação"
       onClose={onClose}
     >
       <Button variant="white" onClick={onClick} size="sm">
-        Click here to install{" "}
+        Clique aqui para instalar
       </Button>
     </Alert>
   );

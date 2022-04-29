@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Ask For Music",
-  "short_name": "AFM",
+  "name": "Pede Música",
+  "short_name": "Pede Música",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

@@ -1,10 +1,12 @@
-import { Text, Transition } from "@mantine/core";
+import { Text, Transition, useMantineTheme } from "@mantine/core";
 import InstallButton from "components/InstallButton";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const [showInstallButton, setShowInstallButton] = useState(false);
+
+  const theme = useMantineTheme();
 
   useEffect(() => {
     setIsMounted(true);
@@ -25,11 +27,15 @@ export default function Home() {
             component="h1"
             align="center"
             variant="gradient"
-            gradient={{ from: "indigo", to: "cyan", deg: 45 }}
+            gradient={{
+              from: theme.colors.grape[6],
+              to: theme.colors.violet[6],
+              deg: 90,
+            }}
             weight={700}
             sx={{ fontSize: "2.5rem", marginBottom: "1rem" }}
           >
-            Ask For Music
+            Pede Música
           </Text>
         )}
       </Transition>
