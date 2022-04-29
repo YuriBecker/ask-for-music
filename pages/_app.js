@@ -19,6 +19,10 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>{manifest.name}</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
       </Head>
 
       <MantineProvider
@@ -38,7 +42,7 @@ export default function App({ Component, pageProps }) {
           Butttom: { size: "md" },
         }}
       >
-        <Container size="xs" p="md">
+        <Container size="xs" px={0}>
           <Component {...pageProps} />
 
           <Affix position={{ bottom: 10, right: 10 }}>
