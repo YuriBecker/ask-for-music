@@ -1,12 +1,11 @@
-import { Text, Transition, useMantineTheme } from "@mantine/core";
+import { Transition } from "@mantine/core";
+import AppTitle from "components/AppTitle";
 import InstallButton from "components/InstallButton";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const [showInstallButton, setShowInstallButton] = useState(false);
-
-  const theme = useMantineTheme();
 
   useEffect(() => {
     setIsMounted(true);
@@ -15,30 +14,7 @@ export default function Home() {
 
   return (
     <main>
-      <Transition
-        mounted={isMounted}
-        transition="slide-left"
-        duration={700}
-        timingFunction="ease"
-      >
-        {(styles) => (
-          <Text
-            style={styles}
-            component="h1"
-            align="center"
-            variant="gradient"
-            gradient={{
-              from: theme.colors.grape[6],
-              to: theme.colors.violet[6],
-              deg: 90,
-            }}
-            weight={700}
-            sx={{ fontSize: "2.5rem", marginBottom: "1rem" }}
-          >
-            Pede Música
-          </Text>
-        )}
-      </Transition>
+      <AppTitle isMounted={isMounted} />
 
       <Transition
         mounted={showInstallButton}
