@@ -1,7 +1,8 @@
-import { Text, Transition, useMantineTheme } from "@mantine/core";
+import { Text, Transition } from "@mantine/core";
+import useIsMounted from "hooks/isMounted";
 
-export default function AppTitle({ isMounted }) {
-  const theme = useMantineTheme();
+export default function AppTitle() {
+  const isMounted = useIsMounted();
 
   return (
     <Transition
@@ -17,13 +18,12 @@ export default function AppTitle({ isMounted }) {
           align="center"
           variant="gradient"
           gradient={{
-            from: theme.colors.grape[6],
-            to: theme.colors.violet[6],
+            from: "grape",
+            to: "violet",
             deg: 90,
           }}
           weight={700}
-          sx={{ fontSize: "2.5rem" }}
-          my="md"
+          sx={{ fontSize: "2.5rem", margin: 0 }}
         >
           Pede Música
         </Text>

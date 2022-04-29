@@ -1,5 +1,5 @@
 import { Alert, Button } from "@mantine/core";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Download } from "tabler-icons-react";
 
 const InstallButton = ({ onClose }) => {
@@ -35,7 +35,7 @@ const InstallButton = ({ onClose }) => {
       icon={<Download size={30} />}
       title="Instale o App e obtenha uma melhor experiência"
       color="primaryColor"
-      radius="md"
+      radius="xs"
       variant="filled"
       styles={{
         icon: { width: "30px", marginTop: "6px" },
