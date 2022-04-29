@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Title, Transition } from "@mantine/core";
+import { Box, Button, Stack, Transition } from "@mantine/core";
 import AppTitle from "components/AppTitle";
 import InstallButton from "components/InstallButton";
 import useIsMounted from "hooks/isMounted";
