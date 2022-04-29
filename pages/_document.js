@@ -16,12 +16,19 @@ export default class _Document extends Document {
 
           <meta name="theme-color" content="#000000" />
           <meta name="application-name" content="Ask For Music" />
-          <meta name="description" content="PWA app to ask form music" />
+          <meta
+            name="description"
+            content="PWA app para pedir músicas em bares"
+          />
           <meta
             name="format-detection"
             content="telephone=no,date=no,address=no,email=no,url=no"
           />
           <meta name="mobile-web-app-capable" content="yes" />
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width"
+          />
 
           <link
             rel="stylesheet"
