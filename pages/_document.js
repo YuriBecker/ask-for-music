@@ -8,7 +8,7 @@ export default class _Document extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="pt-BR">
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
