@@ -1,8 +1,20 @@
+import {
+  ActionIcon,
+  Affix,
+  Container,
+  MantineProvider,
+  Transition,
+  useMantineTheme,
+} from "@mantine/core";
+import { useWindowScroll } from "@mantine/hooks";
 import Head from "next/head";
-import { Container, MantineProvider } from "@mantine/core";
 import manifest from "public/manifest.json";
+import { ArrowUpCircle } from "tabler-icons-react";
 
 export default function App({ Component, pageProps }) {
+  const [scroll, scrollTo] = useWindowScroll();
+  const theme = useMantineTheme();
+
   return (
     <>
       <Head>
@@ -22,7 +34,7 @@ export default function App({ Component, pageProps }) {
           headings: {
             fontFamily: "Roboto, sans-serif",
           },
-          // primaryColor: "indigo",
+          primaryColor: "violet",
           loader: "bars",
         }}
         defaultProps={{
@@ -30,8 +42,26 @@ export default function App({ Component, pageProps }) {
           Butttom: { size: "md" },
         }}
       >
-        <Container size="sm" p="lg">
+        <Container size="xs" p="md">
           <Component {...pageProps} />
+
+          <Affix position={{ bottom: 10, right: 10 }}>
+            <Transition transition="slide-up" mounted={scroll.y > 0}>
+              {(transitionStyles) => (
+                <ActionIcon
+                  style={transitionStyles}
+                  onClick={() => scrollTo({ y: 0 })}
+                  sx={{
+                    backgroundColor: theme.colors.violet[6],
+                  }}
+                  size="lg"
+                  title="Ir para o topo"
+                >
+                  <ArrowUpCircle size="lg" color="white" />
+                </ActionIcon>
+              )}
+            </Transition>
+          </Affix>
         </Container>
       </MantineProvider>
     </>
