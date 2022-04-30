@@ -11,6 +11,8 @@ import Head from "next/head";
 import manifest from "public/manifest.json";
 import { ArrowUpCircle } from "tabler-icons-react";
 
+import "styles/global.css";
+
 export default function App({ Component, pageProps }) {
   const [scroll, scrollTo] = useWindowScroll();
   const theme = useMantineTheme();
@@ -42,7 +44,7 @@ export default function App({ Component, pageProps }) {
           Butttom: { size: "md" },
         }}
       >
-        <Container size="xs" px={0}>
+        <Container size="xs" px={0} sx={{ height: "100%" }}>
           <Component {...pageProps} />
 
           <Affix position={{ bottom: 10, right: 10 }}>

@@ -21,7 +21,7 @@ export default function Home() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          position: "relative",
+          // position: "relative",
         }}
         px="md"
       >
@@ -63,15 +63,7 @@ export default function Home() {
           timingFunction="ease"
         >
           {(styles) => (
-            <Box
-              style={styles}
-              sx={{
-                position: "absolute",
-                width: "100%",
-                bottom: 0,
-                left: 0,
-              }}
-            >
+            <Box style={styles} className="footer-install">
               <InstallButton onClose={() => setShowInstallButton(false)} />
             </Box>
           )}
