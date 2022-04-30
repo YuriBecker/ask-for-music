@@ -8,7 +8,7 @@ export default class _Document extends Document {
 
   render() {
     return (
-      <Html lang="pt-BR" style={{ minHeight: "-webkit-fill-available" }}>
+      <Html lang="pt-BR">
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
@@ -31,7 +31,7 @@ export default class _Document extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto&display=optional"
           />
         </Head>
-        <body style={{ minHeight: "-webkit-fill-available" }}>
+        <body>
           <Main />
           <NextScript />
         </body>
