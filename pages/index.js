@@ -21,7 +21,7 @@ export default function Home() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          // position: "relative",
+          position: "relative",
         }}
         px="md"
       >
