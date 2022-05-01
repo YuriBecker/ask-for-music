@@ -34,11 +34,13 @@
   "shortcuts": [
     {
       "name": "Ouvinte",
-      "url": "/ouvinte"
+      "url": "/ouvinte",
+      "icons": [{ "src": "/icons/ouvinte.svg", "sizes": "192x192" }]
     },
     {
       "name": "Músico",
-      "url": "/musico"
+      "url": "/musico",
+      "icons": [{ "src": "/icons/musico.svg", "sizes": "192x192" }]
     }
   ]
 }
