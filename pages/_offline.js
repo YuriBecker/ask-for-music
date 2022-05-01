@@ -1,9 +1,15 @@
-import { Alert } from "@mantine/core";
+import { Alert, Center } from "@mantine/core";
 import { WifiOff } from "tabler-icons-react";
 
 const Offline = () => {
   return (
-    <>
+    <Center
+      component="main"
+      sx={{
+        height: "100%",
+      }}
+      px="md"
+    >
       <Alert
         icon={<WifiOff size={20} />}
         title="Offline"
@@ -12,7 +18,7 @@ const Offline = () => {
       >
         Você está sem internet. Verifique sua conexão e tente novamente!
       </Alert>
-    </>
+    </Center>
   );
 };
 
