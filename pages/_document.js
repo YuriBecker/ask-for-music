@@ -12,7 +12,27 @@ export default class _Document extends Document {
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
-          <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+          <link
+            rel="apple-touch-icon"
+            href="icons/apple-touch-icon-iphone-60x60.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="icons/apple-touch-icon-ipad-76x76.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="icons/apple-touch-icon-iphone-retina-120x120.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="icons/apple-touch-icon-ipad-retina-152x152.png"
+          />
+
           <link
             href="splashscreens/iphone5_splash.png"
             media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
@@ -74,6 +94,7 @@ export default class _Document extends Document {
             name="apple-mobile-web-app-status-bar-style"
             content="default"
           />
+
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto&display=optional"
