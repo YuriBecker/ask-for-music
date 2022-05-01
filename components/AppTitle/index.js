@@ -20,7 +20,7 @@ export default function AppTitle() {
           gradient={{
             from: "grape",
             to: "violet",
-            deg: 0,
+            deg: 360,
           }}
           weight={700}
           sx={{ fontSize: "2.5rem", margin: 0 }}

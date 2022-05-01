@@ -12,6 +12,7 @@ import manifest from "public/manifest.json";
 import { ArrowUpCircle } from "tabler-icons-react";
 
 import "styles/global.css";
+import AppLayout from "components/AppLayout";
 
 export default function App({ Component, pageProps }) {
   const [scroll, scrollTo] = useWindowScroll();
@@ -41,30 +42,34 @@ export default function App({ Component, pageProps }) {
         }}
         defaultProps={{
           TextInput: { size: "md" },
-          Butttom: { size: "md" },
+          Buttton: { size: "md" },
+          PasswordInput: { size: "md" },
         }}
       >
-        <Container size="xs" px={0} sx={{ height: "100%" }}>
-          <Component {...pageProps} />
+        <AppLayout>
+          <Container size="xs" px={0} sx={{ height: "100%" }}>
+            <Component {...pageProps} />
 
-          <Affix position={{ bottom: 10, right: 10 }}>
-            <Transition transition="slide-up" mounted={scroll.y > 0}>
-              {(transitionStyles) => (
-                <ActionIcon
-                  style={transitionStyles}
-                  onClick={() => scrollTo({ y: 0 })}
-                  sx={{
-                    backgroundColor: theme.colors.violet[6],
-                  }}
-                  size="lg"
-                  title="Ir para o topo"
-                >
-                  <ArrowUpCircle size="lg" color="white" />
-                </ActionIcon>
-              )}
-            </Transition>
-          </Affix>
-        </Container>
+            <Affix position={{ bottom: 10, right: 10 }}>
+              <Transition transition="slide-up" mounted={scroll.y > 0}>
+                {(transitionStyles) => (
+                  <ActionIcon
+                    style={transitionStyles}
+                    onClick={() => scrollTo({ y: 0 })}
+                    sx={{
+                      backgroundColor: theme.colors.violet[6],
+                    }}
+                    size="lg"
+                    title="Ir para o topo"
+                    variant="filled"
+                  >
+                    <ArrowUpCircle size="lg" color="white" />
+                  </ActionIcon>
+                )}
+              </Transition>
+            </Affix>
+          </Container>
+        </AppLayout>
       </MantineProvider>
     </>
   );

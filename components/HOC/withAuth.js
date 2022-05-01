@@ -1,4 +1,4 @@
-import Login from "pages/Login";
+import Login from "pages/musico/login";
 
 const withAuth = (Component) => {
   const Auth = (props) => {

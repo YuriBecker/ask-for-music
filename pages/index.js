@@ -2,6 +2,7 @@ import { Box, Button, Stack, Transition } from "@mantine/core";
 import AppTitle from "components/AppTitle";
 import InstallButton from "components/InstallButton";
 import useIsMounted from "hooks/isMounted";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -15,7 +16,6 @@ export default function Home() {
   return (
     <>
       <Box
-        component="main"
         sx={{
           height: "100%",
           display: "flex",
@@ -36,21 +36,27 @@ export default function Home() {
           {(styles) => (
             <div style={styles}>
               <Stack my="lg">
-                <Button
-                  variant="gradient"
-                  size="lg"
-                  gradient={{ from: "violet", to: "grape" }}
-                >
-                  Sou o Músico
-                </Button>
+                <Link href="/musico" passHref>
+                  <Button
+                    component="a"
+                    variant="gradient"
+                    size="lg"
+                    gradient={{ from: "violet", to: "grape" }}
+                  >
+                    Sou o Músico
+                  </Button>
+                </Link>
 
-                <Button
-                  variant="gradient"
-                  size="lg"
-                  gradient={{ from: "grape", to: "violet" }}
-                >
-                  Sou um Ouvinte
-                </Button>
+                <Link href="/ouvinte" passHref>
+                  <Button
+                    component="a"
+                    variant="gradient"
+                    size="lg"
+                    gradient={{ from: "grape", to: "violet" }}
+                  >
+                    Sou um Ouvinte
+                  </Button>
+                </Link>
               </Stack>
             </div>
           )}
