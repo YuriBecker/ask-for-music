@@ -1,4 +1,4 @@
-import { ActionIcon, AppShell, Header, Title } from "@mantine/core";
+import { ActionIcon, AppShell, Container, Header, Title } from "@mantine/core";
 import { useRouter } from "next/router";
 import { ArrowLeft } from "tabler-icons-react";
 
@@ -58,7 +58,9 @@ export default function AppLayout({ children }) {
         ) : undefined
       }
     >
-      {children}
+      <Container size="xs" px={0} sx={{ height: "100%" }}>
+        {children}
+      </Container>
     </AppShell>
   );
 }

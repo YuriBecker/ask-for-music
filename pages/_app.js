@@ -47,28 +47,26 @@ export default function App({ Component, pageProps }) {
         }}
       >
         <AppLayout>
-          <Container size="xs" px={0} sx={{ height: "100%" }}>
-            <Component {...pageProps} />
+          <Component {...pageProps} />
 
-            <Affix position={{ bottom: 10, right: 10 }}>
-              <Transition transition="slide-up" mounted={scroll.y > 0}>
-                {(transitionStyles) => (
-                  <ActionIcon
-                    style={transitionStyles}
-                    onClick={() => scrollTo({ y: 0 })}
-                    sx={{
-                      backgroundColor: theme.colors.violet[6],
-                    }}
-                    size="lg"
-                    title="Ir para o topo"
-                    variant="filled"
-                  >
-                    <ArrowUpCircle size="lg" color="white" />
-                  </ActionIcon>
-                )}
-              </Transition>
-            </Affix>
-          </Container>
+          <Affix position={{ bottom: 10, right: 10 }}>
+            <Transition transition="slide-up" mounted={scroll.y > 0}>
+              {(transitionStyles) => (
+                <ActionIcon
+                  style={transitionStyles}
+                  onClick={() => scrollTo({ y: 0 })}
+                  sx={{
+                    backgroundColor: theme.colors.violet[6],
+                  }}
+                  size="lg"
+                  title="Ir para o topo"
+                  variant="filled"
+                >
+                  <ArrowUpCircle size="lg" color="white" />
+                </ActionIcon>
+              )}
+            </Transition>
+          </Affix>
         </AppLayout>
       </MantineProvider>
     </>
