@@ -1,24 +1,32 @@
-import { Alert, Center } from "@mantine/core";
+import { Alert, Center, DEFAULT_THEME } from "@mantine/core";
+import Head from "next/head";
 import { WifiOff } from "tabler-icons-react";
 
 const Offline = () => {
   return (
-    <Center
-      component="main"
-      sx={{
-        height: "100%",
-      }}
-      px="md"
-    >
-      <Alert
-        icon={<WifiOff size={20} />}
-        title="Offline"
-        color="red"
-        variant="filled"
+    <>
+      <Head>
+        <title>Você está offline</title>
+        <meta name="theme-color" content={DEFAULT_THEME.colors.red[6]} />
+      </Head>
+
+      <Center
+        component="main"
+        sx={{
+          height: "100%",
+        }}
+        px="md"
       >
-        Você está sem internet. Verifique sua conexão e tente novamente!
-      </Alert>
-    </Center>
+        <Alert
+          icon={<WifiOff size={20} />}
+          title="Offline"
+          color="red"
+          variant="filled"
+        >
+          Você está sem internet. Verifique sua conexão e tente novamente!
+        </Alert>
+      </Center>
+    </>
   );
 };
 
