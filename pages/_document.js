@@ -13,7 +13,6 @@ export default class _Document extends Document {
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
           <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
-
           <link
             href="splashscreens/iphone5_splash.png"
             media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
@@ -65,10 +64,6 @@ export default class _Document extends Document {
             rel="apple-touch-startup-image"
           />
 
-          <meta
-            name="description"
-            content="PWA app para pedir músicas em bares"
-          />
           <meta
             name="format-detection"
             content="telephone=no,date=no,address=no,email=no,url=no"

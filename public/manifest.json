@@ -6,6 +6,7 @@
   "start_url": "/",
   "name": "Pede Música",
   "short_name": "Pede Música",
+  "description": "PWA app para pedir músicas em bares",
   "icons": [
     {
       "src": "icons/android-chrome-192x192.png",
