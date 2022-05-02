@@ -46,7 +46,7 @@ const Home = () => {
             label="Códido de autenticação"
             description="O código será informado pelo estabelecimento"
             required
-            autoComplete="new-password"
+            autoComplete="off"
             {...form.getInputProps("password")}
           />
 

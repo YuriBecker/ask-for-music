@@ -27,7 +27,6 @@ export default function AppLayout({ children }) {
             p="md"
             sx={(theme) => ({
               backgroundColor: theme.colors.violet[6],
-              maxWidth: theme.breakpoints.xs,
               margin: "0 auto",
               display: "flex",
               alignItems: "center",
