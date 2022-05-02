@@ -70,12 +70,12 @@
   "shortcuts": [
     {
       "name": "Ouvinte",
-      "url": "/ouvinte",
+      "url": "/listener",
       "icons": [{ "src": "/icons/ouvinte.svg", "sizes": "192x192" }]
     },
     {
       "name": "Músico",
-      "url": "/musico",
+      "url": "/musician",
       "icons": [{ "src": "/icons/musico.svg", "sizes": "192x192" }]
     }
   ]

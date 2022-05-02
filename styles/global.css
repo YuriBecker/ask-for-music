@@ -7,6 +7,10 @@ body > #__next {
   height: 100% !important;
 }
 
+form {
+  height: 100%;
+}
+
 .footer-install {
   position: absolute;
   width: 100%;

@@ -36,7 +36,7 @@ export default function Home() {
           {(styles) => (
             <div style={styles}>
               <Stack my="lg">
-                <Link href="/musico" passHref>
+                <Link href="/musician" passHref>
                   <Button
                     component="a"
                     variant="gradient"
@@ -47,7 +47,7 @@ export default function Home() {
                   </Button>
                 </Link>
 
-                <Link href="/ouvinte" passHref>
+                <Link href="/listener" passHref>
                   <Button
                     component="a"
                     variant="gradient"

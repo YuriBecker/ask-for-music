@@ -9,7 +9,7 @@ export default function AppLayout({ children }) {
 
   const mainRoute = paths[1] || "";
 
-  const isMusician = mainRoute === "musico";
+  const isMusician = mainRoute === "musician";
 
   return (
     <AppShell
