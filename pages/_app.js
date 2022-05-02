@@ -9,8 +9,8 @@ import { useWindowScroll } from "@mantine/hooks";
 import AppLayout from "components/AppLayout";
 import Head from "next/head";
 import manifest from "public/manifest.json";
-import "styles/global.css";
 import { ArrowUpCircle } from "tabler-icons-react";
+import "styles/global.css";
 
 export default function App({ Component, pageProps }) {
   const [scroll, scrollTo] = useWindowScroll();
