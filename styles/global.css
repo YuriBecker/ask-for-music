@@ -1,4 +1,4 @@
-body {
+/* body {
   min-height: 100vh;
   min-height: fill-available;
   min-height: -webkit-fill-available;
@@ -11,21 +11,8 @@ html {
 
 #__next {
   height: 100% !important;
-}
-
-/* body,
-html,
-#__next {
-  height: 100%;
 } */
 
 form {
   height: 100%;
-}
-
-.footer-install {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
 }

@@ -35,11 +35,13 @@ const InstallButton = ({ onClose }) => {
       icon={<Download size={30} />}
       title="Instale o App e obtenha uma melhor experiência"
       color="primaryColor"
-      radius="xs"
       variant="filled"
       styles={{
         icon: { width: "30px", marginTop: "6px" },
         closeButton: { width: "20px", alignSelf: "flex-start" },
+        root: {
+          borderRadius: 0,
+        },
       }}
       withCloseButton
       closeButtonLabel="Fecha o alerta de instalação"

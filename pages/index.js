@@ -64,12 +64,21 @@ export default function Home() {
 
         <Transition
           mounted={showInstallButton}
-          transition="slide-up"
+          transition="slide-down"
           duration={700}
           timingFunction="ease"
         >
           {(styles) => (
-            <Box style={styles} className="footer-install">
+            <Box
+              style={{
+                ...styles,
+                position: "absolute",
+                width: "100%",
+                top: 0,
+                left: 0,
+              }}
+              className="footer-install"
+            >
               <InstallButton onClose={() => setShowInstallButton(false)} />
             </Box>
           )}
