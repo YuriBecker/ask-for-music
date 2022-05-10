@@ -1,4 +1,8 @@
-import { createSongRequest, getAllSongRequests } from "lib/redis";
+import {
+  createSongRequest,
+  deleteSongRequest,
+  getAllSongRequests,
+} from "lib/redis";
 
 function validateBody(body) {
   const { requestedBy, artist, song } = body;
@@ -21,6 +25,17 @@ export default async function handler(req, res) {
     if (req.method === "GET") {
       const requests = await getAllSongRequests();
       res.status(200).json({ requests });
+    }
+
+    if (req.method === "DELETE") {
+      if (!req.body?.id)
+        return res.status(422).json({
+          error: "Missing id parameter",
+        });
+
+      await deleteSongRequest(req.body?.id);
+
+      res.status(200).send("OK");
     }
 
     return res.status(405).json({ error: "Method Not Allowed" });
