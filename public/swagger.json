@@ -34,7 +34,86 @@
       }
     },
 
-    "/song-request": {
+    "/songs": {
+      "post": {
+        "summary": "Musician add a knowed song",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Song"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success verification",
+            "schema": {
+              "$ref": "#/definitions/IdBody"
+            }
+          },
+          "422": {
+            "description": "Missing parameters!"
+          },
+          "500": {
+            "description": "Failed request"
+          }
+        }
+      },
+
+      "get": {
+        "summary": "Get all song knowed by the musician",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "An array of songs",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Song"
+              }
+            }
+          },
+          "500": {
+            "description": "Failed request"
+          }
+        }
+      },
+
+      "delete": {
+        "summary": "Delete a song by ID",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/IdBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success deleted"
+          },
+          "422": {
+            "description": "Missing parameters!"
+          },
+          "500": {
+            "description": "Failed request"
+          }
+        }
+      }
+    },
+
+    "/requests": {
       "post": {
         "summary": "Send a song request to musician",
         "consumes": ["application/json"],
@@ -116,7 +195,7 @@
   "definitions": {
     "SongRequest": {
       "type": "object",
-      "required": ["requestedBy", "song"],
+      "required": ["requestedBy", "songId"],
       "properties": {
         "requestedBy": {
           "type": "string"
@@ -124,13 +203,25 @@
         "description": {
           "type": "string"
         },
+        "songId": {
+          "type": "string"
+        }
+      }
+    },
+    "Song": {
+      "type": "object",
+      "required": ["name", "genre"],
+      "properties": {
         "artist": {
           "type": "string"
         },
-        "song": {
+        "name": {
           "type": "string"
         },
         "url": {
+          "type": "string"
+        },
+        "genre": {
           "type": "string"
         }
       }
