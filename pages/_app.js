@@ -16,6 +16,21 @@ export default function App({ Component, pageProps }) {
   const [scroll, scrollTo] = useWindowScroll();
   const theme = useMantineTheme();
 
+  if (pageProps.isSwaggerPage) {
+    return (
+      <>
+        <Head>
+          <title>API Doc</title>
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width"
+          />
+        </Head>
+        <Component {...pageProps} />
+      </>
+    );
+  }
+
   return (
     <>
       <Head>

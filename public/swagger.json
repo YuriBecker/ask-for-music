@@ -1,0 +1,157 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Pede música API doc"
+  },
+  "host": "ask-for-music.vercel.app",
+  "basePath": "/api",
+  "schemes": ["https"],
+  "paths": {
+    "/verify-auth": {
+      "post": {
+        "summary": "Verify musician auth code",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success verification"
+          },
+          "401": {
+            "description": "Invalid auth code"
+          }
+        }
+      }
+    },
+
+    "/song-request": {
+      "post": {
+        "summary": "Send a song request to musician",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SongRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success verification",
+            "schema": {
+              "$ref": "#/definitions/IdBody"
+            }
+          },
+          "422": {
+            "description": "Missing parameters!"
+          },
+          "500": {
+            "description": "Failed request"
+          }
+        }
+      },
+
+      "get": {
+        "summary": "Get all song requests",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "An array of song requests",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SongRequest"
+              }
+            }
+          },
+          "500": {
+            "description": "Failed request"
+          }
+        }
+      },
+
+      "delete": {
+        "summary": "Delete a song request by ID",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/IdBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success deleted"
+          },
+          "422": {
+            "description": "Missing parameters!"
+          },
+          "500": {
+            "description": "Failed request"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SongRequest": {
+      "type": "object",
+      "required": ["requestedBy", "song"],
+      "properties": {
+        "requestedBy": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "artist": {
+          "type": "string"
+        },
+        "song": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "Auth": {
+      "type": "object",
+      "required": ["code"],
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "IdBody": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

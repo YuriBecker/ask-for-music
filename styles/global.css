@@ -1,3 +1,8 @@
 form {
   height: 100%;
 }
+
+.swagger-ui {
+  height: 99vh;
+  overflow: scroll;
+}
