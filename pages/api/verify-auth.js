@@ -2,9 +2,6 @@ import { getAuthCode } from "lib/redis";
 
 export default async function handler(req, res) {
   try {
-    const authCode = await getAuthCode();
-    console.log(authCode);
-
     if (req.method === "POST") {
       const { code } = req.body;
 
@@ -15,7 +12,7 @@ export default async function handler(req, res) {
 
       const authCode = await getAuthCode();
 
-      if (authCode === code) return res.status(200).send("OK");
+      if (authCode === code) return res.status(201).send("OK");
 
       return res.status(401).json({ error: "Invalid auth code" });
     }
