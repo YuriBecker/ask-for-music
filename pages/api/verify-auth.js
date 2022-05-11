@@ -1,4 +1,4 @@
-import { getAuthCode } from "lib/redis";
+import { getAuthCode } from "lib/songs";
 
 export default async function handler(req, res) {
   try {

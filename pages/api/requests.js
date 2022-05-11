@@ -1,8 +1,4 @@
-import {
-  createSongRequest,
-  deleteSongRequest,
-  getAllSongRequests,
-} from "lib/redis";
+import { createRequest, deleteRequest, getAllRequests } from "lib/requests";
 
 function validateBody(body) {
   const { requestedBy, songId } = body;
@@ -18,12 +14,12 @@ export default async function handler(req, res) {
           error: "Missing parameters! Requireds -> requestedBy | songId",
         });
 
-      const id = await createSongRequest(req.body);
+      const id = await createRequest(req.body);
       res.status(201).json({ id });
     }
 
     if (req.method === "GET") {
-      const requests = await getAllSongRequests();
+      const requests = await getAllRequests();
       res.status(200).json({ requests });
     }
 
@@ -33,7 +29,7 @@ export default async function handler(req, res) {
           error: "Missing id parameter",
         });
 
-      await deleteSongRequest(req.body?.id);
+      await deleteRequest(req.body?.id);
 
       res.status(200).send("OK");
     }

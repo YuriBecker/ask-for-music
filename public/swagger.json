@@ -6,7 +6,7 @@
   },
   "host": "ask-for-music.vercel.app",
   "basePath": "/api",
-  "schemes": ["https"],
+  "schemes": ["https", "http"],
   "paths": {
     "/verify-auth": {
       "post": {

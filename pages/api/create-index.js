@@ -1,7 +1,7 @@
-import { createIndex } from "lib/redis";
+import { createRequestsIndex } from "lib/requests";
 
 export default async function handler(req, res) {
-  await createIndex();
+  await createRequestsIndex();
 
   res.status(200).send("ok");
 }

@@ -1,4 +1,4 @@
-import { addSong, deleteSong, getAllSongs } from "lib/redis";
+import { addSong, deleteSong, getAllSongs } from "lib/songs";
 
 function validateBody(body) {
   const { name, genre } = body;
@@ -19,8 +19,8 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "GET") {
-      const requests = await getAllSongs();
-      res.status(200).json({ requests });
+      const songs = await getAllSongs();
+      res.status(200).json({ songs });
     }
 
     if (req.method === "DELETE") {
