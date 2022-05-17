@@ -1,4 +1,5 @@
 import { createRequest, deleteRequest, getAllRequests } from "lib/requests";
+import { getAllSongs } from "lib/songs";
 
 function validateBody(body) {
   const { requestedBy, songId } = body;
@@ -12,8 +13,16 @@ async function post(req, res) {
       error: "Missing parameters! Requireds -> requestedBy | songId",
     });
 
-  const id = await createRequest(req.body);
-  res.status(201).json({ id });
+  const songs = await getAllSongs();
+
+  if (songs.find((item) => item.entityId === req?.body?.songId)) {
+    const id = await createRequest(req.body);
+    res.status(201).json({ id });
+  } else {
+    res.status(422).json({
+      error: "Song id not found",
+    });
+  }
 }
 
 async function get(req, res) {
