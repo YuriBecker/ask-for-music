@@ -1,13 +1,24 @@
-import { LoadingOverlay, Text, Timeline, Box, ActionIcon } from "@mantine/core";
+import {
+  ActionIcon,
+  Box,
+  Button,
+  LoadingOverlay,
+  Text,
+  Timeline,
+} from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import axios from "axios";
 import { useRequestList, useSongsList } from "hooks/swrAbstractions";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSWRConfig } from "swr";
-import { Check, Music, Trash, X } from "tabler-icons-react";
+import { Check, Music, Refresh, Trash, X } from "tabler-icons-react";
 
 const RequestList = ({ isMusician = false }) => {
-  const { data: requestData, isLoading: isLoadingRequests } = useRequestList();
+  const {
+    data: requestData,
+    isLoading: isLoadingRequests,
+    isValidating,
+  } = useRequestList();
   const { data: songData, isLoading: isLoadingSongs } = useSongsList();
 
   const [isDeleting, setIsDeleting] = useState({
@@ -79,7 +90,19 @@ const RequestList = ({ isMusician = false }) => {
     );
 
   return (
-    <Box p="24px">
+    <Box p="24px" style={{ display: "flex", flexDirection: "column" }}>
+      <Button
+        variant="outline"
+        mx={"auto"}
+        mb="24px"
+        onClick={() => mutate("/api/requests")}
+        leftIcon={<Refresh />}
+        size="xs"
+        loading={isValidating}
+      >
+        {isValidating ? "Atualizando" : "Atualizar"}
+      </Button>
+
       <Timeline active={0} bulletSize={28} color="primary">
         {requests.map((request, index) => {
           const currentSong = songs.find(

@@ -4,9 +4,9 @@ import useSWR from "swr";
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 export function useRequestList() {
-  const { data, error } = useSWR("/api/requests", fetcher, {
+  const { data, error, isValidating } = useSWR("/api/requests", fetcher, {
     revalidateIfStale: false,
-    revalidateOnFocus: true,
+    revalidateOnFocus: false,
     revalidateOnReconnect: false,
     refreshInterval: 120000,
   });
@@ -15,11 +15,12 @@ export function useRequestList() {
     data,
     isLoading: !error && !data,
     isError: error,
+    isValidating,
   };
 }
 
 export function useSongsList() {
-  const { data, error } = useSWR("/api/songs", fetcher, {
+  const { data, error, isValidating } = useSWR("/api/songs", fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
@@ -29,5 +30,6 @@ export function useSongsList() {
     data,
     isLoading: !error && !data,
     isError: error,
+    isValidating,
   };
 }

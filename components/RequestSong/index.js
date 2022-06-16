@@ -13,7 +13,6 @@ import { useStore } from "hooks/useStore";
 import axios from "axios";
 import { showNotification } from "@mantine/notifications";
 import { Check, X } from "tabler-icons-react";
-import { mutate } from "swr";
 
 const RequestSong = () => {
   const [requesting, setRequesting] = useState(false);
@@ -56,8 +55,6 @@ const RequestSong = () => {
         autoClose: 1000,
         icon: <Check />,
       });
-
-      mutate("/api/requests");
     } catch (error) {
       showNotification({
         title: "Erro ao pedir a música",
