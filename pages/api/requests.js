@@ -1,4 +1,4 @@
-import { createRequest, deleteRequest, getAllRequests } from "lib/requests";
+import { createRequest, deleteRequest, getAllRequests } from "lib/songs";
 import { getAllSongs } from "lib/songs";
 
 function validateBody(body) {

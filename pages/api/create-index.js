@@ -1,4 +1,4 @@
-import { createRequestsIndex } from "lib/requests";
+import { createRequestsIndex } from "lib/songs";
 
 export default async function handler(req, res) {
   await createRequestsIndex();

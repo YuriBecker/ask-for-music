@@ -1,8 +1,16 @@
-import { Button, Stack, TextInput } from "@mantine/core";
+import {
+  ActionIcon,
+  Button,
+  Header,
+  Stack,
+  TextInput,
+  Title,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import DefaultTransition from "components/DefaultTransition";
-import React, { useState } from "react";
-import sleep from "utils/sleep";
+import { useStore } from "hooks/useStore";
+import { useRouter } from "next/router";
+import { ArrowLeft } from "tabler-icons-react";
 
 const Home = () => {
   const form = useForm({
@@ -14,47 +22,72 @@ const Home = () => {
     },
   });
 
-  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const setListenerName = useStore((state) => state.setListenerName);
 
-  async function handleSubmit(values) {
-    try {
-      setIsLoading(true);
-
-      await sleep(2000);
-
-      console.log(values);
-
-      //request
-    } catch (error) {
-      // error toast
-    } finally {
-      setIsLoading(false);
-    }
+  function handleSubmit(values) {
+    setListenerName(values.name);
+    router.push("/listener/authenticated");
   }
 
   return (
-    <DefaultTransition>
-      <form onSubmit={form.onSubmit(handleSubmit)} noValidate>
-        <Stack
-          sx={{
-            height: "100%",
-          }}
-          px="md"
-          justify={"center"}
+    <>
+      <Header
+        height={50}
+        p="md"
+        sx={(theme) => ({
+          backgroundColor: theme.colors.violet[6],
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "fixed",
+          top: 0,
+          left: 0,
+        })}
+      >
+        <ActionIcon
+          color={"violet"}
+          variant="filled"
+          style={{ position: "absolute", left: 10 }}
+          onClick={() => router.back()}
         >
-          <TextInput
-            label="Qual o seu nome?"
-            required
-            autoComplete="name"
-            {...form.getInputProps("name")}
-          />
+          <ArrowLeft color="white" />
+        </ActionIcon>
 
-          <Button variant="filled" type="submit" loading={isLoading}>
-            Entrar
-          </Button>
-        </Stack>
-      </form>
-    </DefaultTransition>
+        <Title
+          order={3}
+          sx={{
+            color: "white",
+          }}
+        >
+          Ouvinte
+        </Title>
+      </Header>
+
+      <DefaultTransition>
+        <form onSubmit={form.onSubmit(handleSubmit)} noValidate>
+          <Stack
+            sx={{
+              height: "100%",
+            }}
+            px="md"
+            justify={"center"}
+          >
+            <TextInput
+              label="Qual o seu nome?"
+              required
+              autoComplete="name"
+              {...form.getInputProps("name")}
+            />
+
+            <Button variant="filled" type="submit">
+              Entrar
+            </Button>
+          </Stack>
+        </form>
+      </DefaultTransition>
+    </>
   );
 };
 
