@@ -55,6 +55,8 @@ const RequestSong = () => {
         autoClose: 1000,
         icon: <Check />,
       });
+
+      form.reset();
     } catch (error) {
       showNotification({
         title: "Erro ao pedir a música",
