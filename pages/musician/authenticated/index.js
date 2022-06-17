@@ -1,4 +1,5 @@
 import { Box, Tabs } from "@mantine/core";
+import withAuth from "components/HOC/withAuth";
 import MySongs from "components/MySongs";
 import Options from "components/Options";
 import RequestList from "components/RequestList";
@@ -25,4 +26,4 @@ const MusicianAuthenticated = () => {
   );
 };
 
-export default MusicianAuthenticated;
+export default withAuth(MusicianAuthenticated);

@@ -83,6 +83,18 @@ const RequestList = ({ isMusician = false }) => {
   if (requests.length === 0)
     return (
       <Box p="24px">
+        <Button
+          variant="outline"
+          mx={"auto"}
+          mb="24px"
+          onClick={() => mutate("/api/requests")}
+          leftIcon={<Refresh />}
+          size="xs"
+          loading={isValidating}
+        >
+          {isValidating ? "Atualizando" : "Atualizar"}
+        </Button>
+
         <Text color="dimmed" size="lg" align="center" i>
           Nenhum pedido encontrado!
         </Text>

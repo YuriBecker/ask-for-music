@@ -1,4 +1,5 @@
 import { Box, Tabs } from "@mantine/core";
+import withAuthListener from "components/HOC/withAuthListener";
 import Options from "components/Options";
 import RequestList from "components/RequestList";
 import RequestSong from "components/RequestSong";
@@ -24,4 +25,4 @@ const ListenerAuthenticated = () => {
   );
 };
 
-export default ListenerAuthenticated;
+export default withAuthListener(ListenerAuthenticated);

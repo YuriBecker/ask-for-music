@@ -6,6 +6,7 @@ export const useStore = create(
     (set) => ({
       listenerName: null,
       musicianIsAuth: false,
+      authMusician: () => set(() => ({ musicianIsAuth: true })),
       setListenerName: (name) => set(() => ({ listenerName: name })),
       logout: () => set(() => ({ listenerName: null, musicianIsAuth: false })),
     }),

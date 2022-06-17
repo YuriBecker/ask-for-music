@@ -14,6 +14,7 @@ import { showNotification } from "@mantine/notifications";
 import { ArrowLeft, Check, X } from "tabler-icons-react";
 import sleep from "utils/sleep";
 import { useRouter } from "next/router";
+import { useStore } from "hooks/useStore";
 
 const Home = () => {
   const form = useForm({
@@ -27,6 +28,8 @@ const Home = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const authMusician = useStore((state) => state.authMusician);
+
   const router = useRouter();
 
   async function handleSubmit(values) {
@@ -36,6 +39,8 @@ const Home = () => {
       await axios.post("/api/verify-auth", {
         code: values.password,
       });
+
+      authMusician();
 
       showNotification({
         title: "Autenticado com sucesso!",

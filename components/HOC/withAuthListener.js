@@ -1,12 +1,12 @@
 import { useStore } from "hooks/useStore";
 import Home from "pages";
 
-const withAuth = (Component) => {
+const withAuthListener = (Component) => {
   const Auth = (props) => {
-    const musicianIsAuth = useStore((state) => state.musicianIsAuth);
+    const listenerName = useStore((state) => state.listenerName);
 
     // If user is not logged in, return login component
-    if (!musicianIsAuth) {
+    if (!listenerName) {
       return <Home />;
     }
 
@@ -22,4 +22,4 @@ const withAuth = (Component) => {
   return Auth;
 };
 
-export default withAuth;
+export default withAuthListener;
