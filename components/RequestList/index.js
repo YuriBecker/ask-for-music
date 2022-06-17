@@ -82,7 +82,7 @@ const RequestList = ({ isMusician = false }) => {
 
   if (requests.length === 0)
     return (
-      <Box p="24px">
+      <Box p="24px" style={{ display: "flex", flexDirection: "column" }}>
         <Button
           variant="outline"
           mx={"auto"}
